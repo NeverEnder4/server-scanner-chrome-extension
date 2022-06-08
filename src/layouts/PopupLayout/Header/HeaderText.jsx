@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   Box, ButtonBase, Typography, useTheme,
 } from '@mui/material';
 
 import { HEADER_TITLE, HEADER_DESCRIPTION } from './constant';
+import useNavigation from '../../../hooks/useNavigation';
+import viewNames from '../../../views/viewNames';
 
 function HeaderText() {
   const theme = useTheme();
+  const { navigate } = useNavigation();
+
+  const onTitleClick = useCallback(() => {
+    navigate({ view: viewNames.HOME });
+  }, [viewNames.HOME]);
 
   return (
     <Box
@@ -15,6 +22,7 @@ function HeaderText() {
       }}
     >
       <ButtonBase
+        onClick={onTitleClick}
         sx={{
           color: theme.palette.primary.main,
           fontSize: 18,
