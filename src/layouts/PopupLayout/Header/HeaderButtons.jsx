@@ -11,12 +11,12 @@ function HeaderButtons() {
 
   return (
     <Box sx={{ alignSelf: 'flex-start', marginTop: theme.spacing(1) }}>
-      <IconButton sx={{ padding: ICON_BUTTON_PADDING }}>
+      <IconButton aria-label="Refresh" sx={{ padding: ICON_BUTTON_PADDING }}>
         <RefreshIcon
           sx={{ fill: theme.palette.common.white, width: ICON_WIDTH }}
         />
       </IconButton>
-      <IconButton sx={{ padding: ICON_BUTTON_PADDING }}>
+      <IconButton aria-label="Settings" sx={{ padding: ICON_BUTTON_PADDING }}>
         <SettingsIcon
           sx={{ fill: theme.palette.secondary.light, width: ICON_WIDTH }}
         />

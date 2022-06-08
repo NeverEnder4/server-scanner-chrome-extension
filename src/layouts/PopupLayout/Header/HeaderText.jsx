@@ -3,6 +3,8 @@ import {
   Box, ButtonBase, Typography, useTheme,
 } from '@mui/material';
 
+import { HEADER_TITLE, HEADER_DESCRIPTION } from './constant';
+
 function HeaderText() {
   const theme = useTheme();
 
@@ -22,7 +24,7 @@ function HeaderText() {
           letterSpacing: 1,
         }}
       >
-        V Rising Server Scanner
+        {HEADER_TITLE}
       </ButtonBase>
       <Typography
         sx={{
@@ -31,8 +33,7 @@ function HeaderText() {
           color: theme.palette.common.white,
         }}
       >
-        Search and save dedicated V Rising servers for easy access to server
-        information
+        {HEADER_DESCRIPTION}
       </Typography>
     </Box>
   );
