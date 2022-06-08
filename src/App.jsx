@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import {
+  Home, Server, Player, viewNames,
+} from './views';
 
 function App() {
-  return <div className="App">TESTTTT</div>;
+  const [view, setView] = useState('HOME');
+
+  switch (view) {
+    case viewNames.HOME:
+      return <Home setView={setView} />;
+    case viewNames.SERVER:
+      return <Server />;
+    case viewNames.PLAYER:
+      return <Player />;
+    default:
+      return <Home />;
+  }
 }
 
 export default App;
