@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
-  Home, Server, Player, viewNames,
+  Home, Server, Player,
 } from './views';
+import useNavigation from './hooks/useNavigation';
+import viewNames from './views/viewNames';
 
 function App() {
-  const [view, setView] = useState('HOME');
+  const { currentView } = useNavigation();
 
-  switch (view) {
+  switch (currentView) {
     case viewNames.HOME:
-      return <Home setView={setView} />;
+      return <Home />;
     case viewNames.SERVER:
       return <Server />;
     case viewNames.PLAYER:
