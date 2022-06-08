@@ -1,10 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-export const NavigationContext = React.createContext();
+import viewNames from '../views/viewNames';
+
+export const NavigationContext = React.createContext(viewNames.HOME);
 
 export function NavigationProvider({ children }) {
-  const [view, setView] = useState(null);
+  const [view, setView] = useState(viewNames.HOME);
 
   // useMemo implemented to avoid inlining an object as Provider value which causes
   // unchecked re-renders of Provider
