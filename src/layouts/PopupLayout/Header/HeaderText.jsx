@@ -35,11 +35,7 @@ function HeaderText() {
         {HEADER_TITLE}
       </ButtonBase>
       <Typography
-        sx={{
-          fontSize: 12,
-          fontWeight: 'bold',
-          color: theme.palette.common.white,
-        }}
+        variant="body2"
       >
         {HEADER_DESCRIPTION}
       </Typography>

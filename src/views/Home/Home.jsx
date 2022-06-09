@@ -2,9 +2,11 @@ import React from 'react';
 import { Fab, Zoom, useTheme } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
+import NoServersFound from './NoServersFound';
 import PopupLayout from '../../layouts/PopupLayout';
 import useNavigation from '../../hooks/useNavigation';
 import viewNames from '../viewNames';
+import FAB_DIAMETER from './constant';
 
 const ICON_DIMENSION = 32;
 
@@ -19,6 +21,7 @@ function Home() {
 
   return (
     <PopupLayout>
+      <NoServersFound />
       <Zoom
         in={currentView === viewNames.HOME}
         timeout={transitionDuration}
@@ -33,6 +36,8 @@ function Home() {
             position: 'absolute',
             right: theme.spacing(3),
             bottom: theme.spacing(3),
+            width: FAB_DIAMETER,
+            height: FAB_DIAMETER,
           }}
           aria-label="Add Server"
         >

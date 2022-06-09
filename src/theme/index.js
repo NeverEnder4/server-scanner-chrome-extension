@@ -17,6 +17,21 @@ const theme = createTheme({
       800: '#404751',
     },
   },
+  typography: {
+    h1: {
+      fontSize: 26,
+      fontWeight: 'bold',
+      letterSpacing: 1,
+      fontFamily: 'Paytone One, sans-serif',
+    },
+    body1: {
+      fontSize: 12,
+    },
+    body2: {
+      fontSize: 12,
+      fontWeight: 'bold',
+    },
+  },
   components: {
     MuiFab: {
       styleOverrides: {
@@ -28,6 +43,22 @@ const theme = createTheme({
             },
           }),
         }),
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: ({ ownerState }) => {
+          const styles = {};
+          if (ownerState.variant === 'body1' || ownerState.variant === 'body2') {
+            styles.color = theme.palette.common.white;
+          }
+
+          if (ownerState.variant === 'h1') {
+            styles.color = theme.palette.primary.main;
+          }
+
+          return styles;
+        },
       },
     },
   },
