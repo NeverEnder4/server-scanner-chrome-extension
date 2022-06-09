@@ -15,6 +15,7 @@ function Layout({ children }) {
         backgroundColor: theme.palette.grey[800],
         border: `4px solid ${theme.palette.common.white}`,
         boxShadow: theme.shadows[1],
+        position: 'relative',
       }}
     >
       <Header />

@@ -2,8 +2,9 @@ import React from 'react';
 import { Box, useTheme } from '@mui/material';
 import HeaderText from './HeaderText';
 import HeaderButtons from './HeaderButtons';
+import { HEADER_HEIGHT } from './constant';
 
-function Header() {
+export function Header() {
   const theme = useTheme();
 
   return (
@@ -11,7 +12,7 @@ function Header() {
       sx={{
         backgroundColor: theme.palette.common.black,
         boxShadow: theme.shadows[1],
-        height: 105,
+        height: HEADER_HEIGHT,
         width: '100%',
         display: 'flex',
         alignItems: 'center',
