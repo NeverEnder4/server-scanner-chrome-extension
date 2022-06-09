@@ -17,6 +17,20 @@ const theme = createTheme({
       800: '#404751',
     },
   },
+  components: {
+    MuiFab: {
+      styleOverrides: {
+        root: ({ ownerState }) => ({
+          ...(ownerState.color === 'primary' && {
+            backgroundColor: theme.palette.common.black,
+            '&:hover': {
+              backgroundColor: theme.palette.grey[900],
+            },
+          }),
+        }),
+      },
+    },
+  },
 });
 
 export default theme;
