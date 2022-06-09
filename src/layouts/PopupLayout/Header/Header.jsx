@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { Box, useTheme } from '@mui/material';
-import HeaderText from './HeaderText';
-import HeaderButtons from './HeaderButtons';
+
 import { HEADER_HEIGHT } from './constant';
+import HeaderButtons from './HeaderButtons';
+import HeaderText from './HeaderText';
 
 export function Header() {
   const theme = useTheme();

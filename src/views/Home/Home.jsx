@@ -1,12 +1,16 @@
-import React from 'react';
-import { Fab, Zoom, useTheme } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
+import React, { useCallback } from 'react';
 
-import NoServersFound from './NoServersFound';
-import PopupLayout from '../../layouts/PopupLayout';
+import AddIcon from '@mui/icons-material/Add';
+import { useTheme } from '@mui/material';
+
+import ZoomFab from '../../components/Fab';
+import ButtonModal from '../../components/Modal';
 import useNavigation from '../../hooks/useNavigation';
+import PopupLayout from '../../layouts/PopupLayout';
 import viewNames from '../viewNames';
+import AddServerForm from './AddServerForm';
 import FAB_DIAMETER from './constant';
+import NoServersFound from './NoServersFound';
 
 const ICON_DIMENSION = 32;
 
@@ -14,42 +18,42 @@ function Home() {
   const theme = useTheme();
   const { currentView } = useNavigation();
 
-  const transitionDuration = {
-    enter: theme.transitions.duration.enteringScreen,
-    exit: theme.transitions.duration.leavingScreen,
-  };
+  const renderOpenButton = useCallback(({ handleOpenModal }) => {
+    const renderIcon = useCallback(() => (
+      <AddIcon
+        sx={{
+          fill: theme.palette.common.white,
+          width: ICON_DIMENSION,
+          height: ICON_DIMENSION,
+        }}
+      />
+    ));
+
+    return (
+      <ZoomFab
+        visible={currentView === viewNames.HOME}
+        onClick={handleOpenModal}
+        color="primary"
+        position="bottomRight"
+        size={FAB_DIAMETER}
+        ariaLabel="Add Server"
+        renderIcon={renderIcon}
+      />
+    );
+  });
 
   return (
     <PopupLayout>
-      <NoServersFound />
-      <Zoom
-        in={currentView === viewNames.HOME}
-        timeout={transitionDuration}
-        style={{
-          transitionDelay: `${transitionDuration.exit}ms`,
-        }}
-        unmountOnExit
-      >
-        <Fab
-          color="primary"
-          sx={{
-            position: 'absolute',
-            right: theme.spacing(3),
-            bottom: theme.spacing(3),
-            width: FAB_DIAMETER,
-            height: FAB_DIAMETER,
-          }}
-          aria-label="Add Server"
+      <>
+        <NoServersFound />
+        <ButtonModal
+          renderOpenButton={renderOpenButton}
+          ariaLabeledBy="Add Server"
+          ariaDescribedBy="Open add server form"
         >
-          <AddIcon
-            sx={{
-              fill: theme.palette.common.white,
-              width: ICON_DIMENSION,
-              height: ICON_DIMENSION,
-            }}
-          />
-        </Fab>
-      </Zoom>
+          <AddServerForm />
+        </ButtonModal>
+      </>
     </PopupLayout>
   );
 }

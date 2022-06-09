@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+
 import PropTypes from 'prop-types';
 
 import viewNames from '../views/viewNames';

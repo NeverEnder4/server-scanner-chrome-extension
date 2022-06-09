@@ -1,6 +1,6 @@
 import Home from './Home';
-import Server from './Server';
 import Player from './Player';
+import Server from './Server';
 
 export {
   Home, Server, Player,

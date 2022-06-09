@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, IconButton, useTheme } from '@mui/material';
 
 import RefreshIcon from '@mui/icons-material/Refresh';
 import SettingsIcon from '@mui/icons-material/Settings';
+import { Box, IconButton, useTheme } from '@mui/material';
 
 const ICON_WIDTH = 28;
 
