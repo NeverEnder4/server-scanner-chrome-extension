@@ -18,29 +18,27 @@ function Home() {
   const theme = useTheme();
   const { currentView } = useNavigation();
 
-  const renderOpenButton = useCallback(({ handleOpenModal }) => {
-    const renderIcon = useCallback(() => (
-      <AddIcon
-        sx={{
-          fill: theme.palette.common.white,
-          width: ICON_DIMENSION,
-          height: ICON_DIMENSION,
-        }}
-      />
-    ));
+  const renderIcon = useCallback(() => (
+    <AddIcon
+      sx={{
+        fill: theme.palette.common.white,
+        width: ICON_DIMENSION,
+        height: ICON_DIMENSION,
+      }}
+    />
+  ));
 
-    return (
-      <ZoomFab
-        visible={currentView === viewNames.HOME}
-        onClick={handleOpenModal}
-        color="primary"
-        position="bottomRight"
-        size={FAB_DIAMETER}
-        ariaLabel="Add Server"
-        renderIcon={renderIcon}
-      />
-    );
-  });
+  const renderOpenButton = useCallback(({ handleOpenModal }) => (
+    <ZoomFab
+      visible={currentView === viewNames.HOME}
+      onClick={handleOpenModal}
+      color="primary"
+      position="bottomRight"
+      size={FAB_DIAMETER}
+      ariaLabel="Add Server"
+      renderIcon={renderIcon}
+    />
+  ));
 
   return (
     <PopupLayout>
