@@ -1,9 +1,11 @@
-import React, { forwardRef, useEffect } from 'react';
+import React, { forwardRef, useEffect, useCallback } from 'react';
 
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box } from '@mui/material';
 import PropTypes from 'prop-types';
 
 import HelperText from './HelperText';
+import Label from './Label';
+import useInputStyles from './useInputStyles';
 
 const NumberInput = forwardRef(
   (
@@ -23,40 +25,32 @@ const NumberInput = forwardRef(
     },
     ref,
   ) => {
-    const theme = useTheme();
-
+    const inputStyles = useInputStyles();
     const inputElement = document.getElementById(id);
+
+    const preventStep = useCallback((e) => {
+      if (e.keyCode === 38 || e.keyCode === 40) {
+        e.preventDefault();
+      }
+    });
 
     useEffect(() => {
       if (inputElement && disableKeypressStep) {
-        inputElement.addEventListener('keydown', (e) => {
-          if (e.keyCode === 38 || e.keyCode === 40) {
-            e.preventDefault();
-          }
-        });
+        inputElement.addEventListener('keydown', preventStep);
       }
-    }, [inputElement, disableKeypressStep]);
+
+      return () => {
+        if (inputElement && disableKeypressStep) {
+          inputElement.removeEventListener('keydown', preventStep);
+        }
+      };
+    }, [inputElement, disableKeypressStep, preventStep]);
 
     return (
       <Box>
-        <Typography
-          variant="body2"
-          sx={{ marginBottom: theme.spacing(1) }}
-          component="label"
-          htmlFor={id}
-        >
-          {label}
-        </Typography>
+        <Label htmlFor={id} label={label} />
         <input
-          style={{
-            background: theme.palette.common.black,
-            color: theme.palette.common.white,
-            border: `1px solid ${theme.palette.common.black}`,
-            outline: 'none',
-            padding: theme.spacing(1, 1),
-            width: '100%',
-            marginTop: theme.spacing(1),
-          }}
+          style={inputStyles}
           id={id}
           value={value}
           onChange={onChange}

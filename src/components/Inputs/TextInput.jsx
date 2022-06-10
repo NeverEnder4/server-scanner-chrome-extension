@@ -1,41 +1,31 @@
 import React, { forwardRef } from 'react';
 
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box } from '@mui/material';
 import PropTypes from 'prop-types';
 
 import HelperText from './HelperText';
-import MaxLengthCount from './MaxLengthCount';
+import LabelWithCount from './LabelWithCount';
+import useInputStyles from './useInputStyles';
 
 const TextInput = forwardRef(
-  ({
-    value, onChange, onBlur, id, name, label, error, helperText, maxLength,
-  }, ref) => {
-    const theme = useTheme();
+  (
+    {
+      value, onChange, onBlur, id, name, label, error, helperText, maxLength,
+    },
+    ref,
+  ) => {
+    const inputStyles = useInputStyles();
 
     return (
       <Box>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
-          <Typography variant="body2" component="label" htmlFor={id}>
-            {label}
-          </Typography>
-          <MaxLengthCount maxLength={maxLength} valueLength={value.length} />
-        </Box>
+        <LabelWithCount
+          htmlFor={id}
+          label={label}
+          maxLength={maxLength}
+          valueLength={value.length}
+        />
         <input
-          style={{
-            background: theme.palette.common.black,
-            color: theme.palette.common.white,
-            border: `1px solid ${theme.palette.common.black}`,
-            outline: 'none',
-            padding: theme.spacing(1, 1),
-            width: '100%',
-            marginTop: theme.spacing(1),
-          }}
+          style={inputStyles}
           id={id}
           value={value}
           onChange={onChange}
