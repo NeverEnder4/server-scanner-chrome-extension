@@ -27,7 +27,9 @@ function HelperText({ helperText, error }) {
           marginRight: theme.spacing(0.5),
         }}
       />
-      <Typography variant="body2" sx={{ color: ERROR_COLOR, fontSize: 12 }}>{helperText}</Typography>
+      <Typography variant="body2" sx={{ color: ERROR_COLOR, fontSize: 12 }}>
+        {helperText}
+      </Typography>
     </Box>
   );
 }
