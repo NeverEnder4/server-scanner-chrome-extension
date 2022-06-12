@@ -69,7 +69,7 @@ const NumberInput = forwardRef(
 );
 
 NumberInput.defaultProps = {
-  value: '',
+  value: undefined,
   helperText: '',
   error: false,
   disableKeypressStep: false,
@@ -79,7 +79,7 @@ NumberInput.defaultProps = {
 };
 
 NumberInput.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.number,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,

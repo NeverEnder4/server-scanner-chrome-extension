@@ -10,8 +10,6 @@ function MaxLengthCount({ maxLength, valueLength }) {
     ? theme.palette.error.main
     : theme.palette.secondary.light;
 
-  if (!maxLength) return null;
-
   return (
     <Box
       sx={{
@@ -23,18 +21,13 @@ function MaxLengthCount({ maxLength, valueLength }) {
         sx={{ color, letterSpacing: 0.8, marginLeft: 'auto' }}
       >
         {`${valueLength}/${maxLength}`}
-
       </Typography>
     </Box>
   );
 }
 
-MaxLengthCount.defaultProps = {
-  maxLength: undefined,
-};
-
 MaxLengthCount.propTypes = {
-  maxLength: PropTypes.number,
+  maxLength: PropTypes.number.isRequired,
   valueLength: PropTypes.number.isRequired,
 };
 

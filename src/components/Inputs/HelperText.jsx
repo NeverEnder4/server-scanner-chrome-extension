@@ -9,7 +9,7 @@ function HelperText({ helperText, error }) {
   const ERROR_COLOR = theme.palette.error.main;
   const ICON_SIZE = 12;
 
-  if (!error) return null;
+  if (!error || !helperText) return null;
 
   return (
     <Box

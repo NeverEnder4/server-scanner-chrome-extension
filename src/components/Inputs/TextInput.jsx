@@ -25,6 +25,7 @@ const TextInput = forwardRef(
           valueLength={value.length}
         />
         <input
+          type="text"
           style={inputStyles}
           id={id}
           value={value}

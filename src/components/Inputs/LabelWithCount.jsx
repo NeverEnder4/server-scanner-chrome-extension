@@ -18,7 +18,7 @@ function LabelWithCount({
       }}
     >
       <Label htmlFor={htmlFor} label={label} />
-      <MaxLengthCount maxLength={maxLength} valueLength={valueLength} />
+      {maxLength && <MaxLengthCount maxLength={maxLength} valueLength={valueLength} />}
     </Box>
   );
 }
