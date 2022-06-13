@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 const STORAGE_ICON_SIZE = 14;
 const CLOSE_ICON_SIZE = 20;
 
-function AddServerFormHead({ closeModal }) {
+function AddServerFormHead({ closeModal, titleId }) {
   const theme = useTheme();
 
   return (
@@ -39,6 +39,7 @@ function AddServerFormHead({ closeModal }) {
         <Typography
           sx={{ color: theme.palette.secondary.light }}
           variant="body2"
+          id={titleId}
         >
           ADD SERVER
         </Typography>
@@ -56,8 +57,13 @@ function AddServerFormHead({ closeModal }) {
   );
 }
 
+AddServerFormHead.defaultProps = {
+  titleId: undefined,
+};
+
 AddServerFormHead.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  titleId: PropTypes.string,
 };
 
 export default AddServerFormHead;

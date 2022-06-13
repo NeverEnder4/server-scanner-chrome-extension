@@ -13,6 +13,8 @@ import FAB_DIAMETER from './constant';
 import NoServersFound from './NoServersFound';
 
 const ICON_DIMENSION = 32;
+const MODAL_TITLE = 'Add Server Form';
+const MODAL_DESCRIPTION = 'Add a V Rising server using this form';
 
 function Home() {
   const theme = useTheme();
@@ -46,10 +48,13 @@ function Home() {
         <NoServersFound />
         <ButtonModal
           renderOpenButton={renderOpenButton}
-          ariaLabeledBy="Add Server"
-          ariaDescribedBy="Open add server form"
+          ariaLabeledBy={MODAL_TITLE}
+          ariaDescribedBy={MODAL_DESCRIPTION}
         >
-          <AddServerForm />
+          <AddServerForm
+            titleId={MODAL_TITLE}
+            descriptionId={MODAL_DESCRIPTION}
+          />
         </ButtonModal>
       </>
     </PopupLayout>

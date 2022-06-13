@@ -48,11 +48,16 @@ function ButtonModal({
   );
 }
 
+ButtonModal.defaultProps = {
+  ariaLabeledBy: undefined,
+  ariaDescribedBy: undefined,
+};
+
 ButtonModal.propTypes = {
   children: PropTypes.element.isRequired,
   renderOpenButton: PropTypes.func.isRequired,
-  ariaLabeledBy: PropTypes.string.isRequired,
-  ariaDescribedBy: PropTypes.string.isRequired,
+  ariaLabeledBy: PropTypes.string,
+  ariaDescribedBy: PropTypes.string,
 };
 
 export default ButtonModal;

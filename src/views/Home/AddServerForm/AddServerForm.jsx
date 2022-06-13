@@ -21,7 +21,7 @@ const schema = yup.object().shape({
   notes: yup.string().max(NOTES_MAX_LENGTH),
 });
 
-function AddServerForm({ handleCloseModal }) {
+function AddServerForm({ handleCloseModal, titleId }) {
   const theme = useTheme();
   const {
     handleSubmit, control, formState: { errors },
@@ -41,7 +41,7 @@ function AddServerForm({ handleCloseModal }) {
         width: 350,
       }}
     >
-      <AddServerFormHeader closeModal={handleCloseModal} />
+      <AddServerFormHeader titleId={titleId} closeModal={handleCloseModal} />
       <form
         style={{
           marginTop: theme.spacing(3), display: 'flex', flexDirection: 'column',
@@ -137,10 +137,12 @@ function AddServerForm({ handleCloseModal }) {
 
 AddServerForm.defaultProps = {
   handleCloseModal: undefined,
+  titleId: undefined,
 };
 
 AddServerForm.propTypes = {
   handleCloseModal: PropTypes.func,
+  titleId: PropTypes.string,
 };
 
 export default AddServerForm;
