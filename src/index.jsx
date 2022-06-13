@@ -1,11 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+
 import { ThemeProvider, CssBaseline } from '@mui/material';
+import ReactDOM from 'react-dom/client';
 
 import App from './App';
-import theme from './theme';
 import { NavigationProvider } from './context/NavigationContext';
 import reportWebVitals from './reportWebVitals';
+import theme from './theme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

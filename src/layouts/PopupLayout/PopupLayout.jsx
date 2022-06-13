@@ -1,10 +1,11 @@
 import React from 'react';
+
 import { Box, useTheme } from '@mui/material';
 import PropTypes from 'prop-types';
 
 import Header from './Header';
 
-function Layout({ children }) {
+function PopupLayout({ children }) {
   const theme = useTheme();
 
   return (
@@ -24,8 +25,8 @@ function Layout({ children }) {
   );
 }
 
-Layout.propTypes = {
+PopupLayout.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default Layout;
+export default PopupLayout;

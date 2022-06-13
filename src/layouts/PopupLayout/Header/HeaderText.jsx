@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
+
 import {
   Box, ButtonBase, Typography, useTheme,
 } from '@mui/material';
 
-import { HEADER_TITLE, HEADER_DESCRIPTION } from './constant';
 import useNavigation from '../../../hooks/useNavigation';
 import viewNames from '../../../views/viewNames';
+import { HEADER_TITLE, HEADER_DESCRIPTION } from './constant';
 
 function HeaderText() {
   const theme = useTheme();
@@ -34,11 +35,7 @@ function HeaderText() {
       >
         {HEADER_TITLE}
       </ButtonBase>
-      <Typography
-        variant="body2"
-      >
-        {HEADER_DESCRIPTION}
-      </Typography>
+      <Typography variant="body2">{HEADER_DESCRIPTION}</Typography>
     </Box>
   );
 }

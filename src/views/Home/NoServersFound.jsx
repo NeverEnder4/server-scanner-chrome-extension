@@ -1,6 +1,7 @@
 import React from 'react';
-import { Typography, Box, useTheme } from '@mui/material';
+
 import StorageIcon from '@mui/icons-material/Storage';
+import { Typography, Box, useTheme } from '@mui/material';
 
 import { HEADER_HEIGHT } from '../../layouts/PopupLayout/Header/constant';
 import FAB_DIAMETER from './constant';
@@ -32,8 +33,12 @@ function NoServersFound() {
           fill: theme.palette.secondary.light,
         }}
       />
-      <Typography sx={{ marginBottom: theme.spacing(1) }} variant="h1">{NSF}</Typography>
-      <Typography sx={{ textAlign: 'center', width: 275 }} variant="body2">{NSF_DESCRIPTION}</Typography>
+      <Typography sx={{ marginBottom: theme.spacing(1) }} variant="h1">
+        {NSF}
+      </Typography>
+      <Typography sx={{ textAlign: 'center', width: 275 }} variant="body2">
+        {NSF_DESCRIPTION}
+      </Typography>
     </Box>
   );
 }

@@ -1,8 +1,8 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 
 import { NavigationProvider } from '../context/NavigationContext';
-import useNavigation from './useNavigation';
 import viewNames from '../views/viewNames';
+import useNavigation from './useNavigation';
 
 function renderNavigationHook() {
   const { result } = renderHook(() => useNavigation(), {

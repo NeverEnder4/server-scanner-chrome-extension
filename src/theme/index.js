@@ -17,6 +17,9 @@ const theme = createTheme({
       800: '#404751',
     },
   },
+  shape: {
+    borderRadius: 2,
+  },
   typography: {
     h1: {
       fontSize: 26,
@@ -33,6 +36,31 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiButton: {
+      styleOverrides: {
+        root: ({ ownerState }) => {
+          const styles = {
+            fontWeight: 'bold',
+            paddingLeft: theme.spacing(3),
+            paddingRight: theme.spacing(3),
+          };
+
+          if (ownerState.color === 'primary' && ownerState.variant === 'contained') {
+            styles.backgroundColor = theme.palette.secondary.light;
+            styles['&:hover'] = { backgroundColor: theme.palette.secondary.light };
+          }
+
+          return styles;
+        },
+      },
+    },
+    MuiBackdrop: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        },
+      },
+    },
     MuiFab: {
       styleOverrides: {
         root: ({ ownerState }) => ({
@@ -48,8 +76,12 @@ const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         root: ({ ownerState }) => {
-          const styles = {};
-          if (ownerState.variant === 'body1' || ownerState.variant === 'body2') {
+          const styles = {
+          };
+          if (
+            ownerState.variant === 'body1'
+            || ownerState.variant === 'body2'
+          ) {
             styles.color = theme.palette.common.white;
           }
 

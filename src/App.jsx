@@ -1,9 +1,7 @@
 import React from 'react';
 
-import {
-  Home, Server, Player,
-} from './views';
 import useNavigation from './hooks/useNavigation';
+import { Home, Server, Player } from './views';
 import viewNames from './views/viewNames';
 
 function App() {
