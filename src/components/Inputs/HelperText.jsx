@@ -13,6 +13,7 @@ function HelperText({ helperText, error }) {
 
   return (
     <Box
+      role="alert"
       sx={{
         display: 'flex',
         alignItems: 'center',

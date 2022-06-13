@@ -44,7 +44,11 @@ function AddServerFormHead({ closeModal, titleId }) {
           ADD SERVER
         </Typography>
       </Box>
-      <IconButton sx={{ padding: 0 }} onClick={closeModal}>
+      <IconButton
+        aria-label="Close Button"
+        sx={{ padding: 0 }}
+        onClick={closeModal}
+      >
         <CloseIcon
           sx={{
             fill: theme.palette.secondary.light,

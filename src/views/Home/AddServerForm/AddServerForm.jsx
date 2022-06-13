@@ -29,7 +29,7 @@ function AddServerForm({ handleCloseModal, titleId }) {
     resolver: yupResolver(schema),
   });
 
-  function onSubmit(data) {
+  async function onSubmit(data) {
     console.log(data);
   }
 
@@ -51,7 +51,7 @@ function AddServerForm({ handleCloseModal, titleId }) {
         <Grid container spacing={2}>
           <Grid item xs={8}>
             <Controller
-              name="hostIp*"
+              name="hostIp"
               control={control}
               defaultValue=""
               render={({ field }) => (
